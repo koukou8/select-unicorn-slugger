@@ -1,0 +1,10 @@
+# Project-local Codex configuration placeholder.
+#
+# This file is intentionally comment-only for now so it cannot change Codex behavior
+# unexpectedly. Add concrete settings here only after confirming the exact supported
+# keys for the Codex runtime being used.
+#
+# Project guidance lives in:
+# - AGENTS.md
+# - .codex/agents/
+# - .agents/skills/

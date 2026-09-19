@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="軟式野球プレーヤーのためのバット適性診断" />
+    <title>BAT FIT | 軟式バット適性診断</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body data-theme="maker">
+    <a class="skip-link" href="#app">診断を始める</a>
+
+    <noscript><p class="noscript-notice">この診断はJavaScriptを使用します。ブラウザのJavaScriptを有効にしてから、もう一度お試しください。</p></noscript>
+
+    <main id="app" class="site-shell">
+      <header class="brand-bar" aria-label="BAT FIT">
+        <a class="wordmark" href="?ui=maker" aria-label="BAT FIT トップへ">
+          <span class="wordmark-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>BAT <em>FIT</em></span>
+        </a>
+        <span class="theme-caption" id="theme-caption">CRAFTED FOR YOUR SWING</span>
+      </header>
+
+      <section class="intro-panel" id="intro-panel" aria-labelledby="intro-title">
+        <div class="maker-hero-photo" aria-hidden="true"></div>
+        <div class="bat-figure" aria-hidden="true"><span></span><i></i></div>
+        <p class="kicker">軟式野球プレーヤーのための</p>
+        <h1 id="intro-title"><span>今のスイングに合う</span><span class="hero-stroke">一本を、見つけよう。</span></h1>
+        <p class="intro-copy">飛距離、ミート、振り抜きやすさ。7つの質問に答えるだけで、今のあなたに合うUSシリーズが分かります。</p>
+        <div class="intro-meta" aria-label="診断の所要時間と対象">
+          <span>7 QUESTIONS</span><span>約 1 MINUTE</span><span>軟式用</span>
+        </div>
+        <button class="button button-primary" id="start-button" type="button">自分に合う一本を探す <span aria-hidden="true">→</span></button>
+        <p class="intro-note">※ US-2は情報を確認中のため、診断には含まれていません。</p>
+      </section>
+
+      <section class="diagnosis-panel is-hidden" id="diagnosis-panel" aria-labelledby="question-title" aria-live="polite">
+        <div class="progress-area">
+          <p id="progress-label">QUESTION <span>1</span> / 7</p>
+          <div class="progress-track" role="progressbar" aria-label="診断の進行状況" aria-valuemin="1" aria-valuemax="7" aria-valuenow="1"><span id="progress-fill"></span></div>
+        </div>
+        <div class="question-card">
+          <p class="question-category" id="question-category"></p>
+          <h2 id="question-title" tabindex="-1"></h2>
+          <div id="answer-list" class="answer-list" role="radiogroup" aria-labelledby="question-title"></div>
+        </div>
+        <div class="navigation">
+          <button class="button button-quiet" id="back-button" type="button">前の質問へ</button>
+          <button class="button button-primary" id="next-button" type="button" disabled>次へ <span aria-hidden="true">→</span></button>
+        </div>
+        <p class="selection-hint" id="selection-hint">ひとつ選んでください</p>
+      </section>
+
+      <section class="result-panel is-hidden" id="result-panel" aria-labelledby="result-heading" tabindex="-1">
+        <p class="result-label">YOUR BAT FIT</p>
+        <p class="result-lead">あなたに合うのは、この一本です。</p>
+        <h2 id="result-heading" class="result-model"></h2>
+        <p id="result-tagline" class="result-tagline"></p>
+        <div class="fit-meter" aria-label="適合度"><span class="fit-meter-label">FIT SCORE</span><strong id="fit-score"></strong><span class="fit-meter-suffix">/ 100</span></div>
+        <p id="recommendation-status" class="recommendation-status" aria-live="polite"></p>
+        <div class="result-core">
+          <section class="reason-box" aria-labelledby="reason-heading">
+            <h3 id="reason-heading">このモデルが合う理由</h3>
+            <ul id="reason-list"></ul>
+          </section>
+          <section class="model-profile" aria-labelledby="profile-heading">
+            <h3 id="profile-heading">モデルの特徴</h3>
+            <p id="model-description"></p>
+            <div id="model-tags" class="model-tags"></div>
+            <p class="model-caution"><strong>選ぶ前に</strong><span id="model-caution"></span></p>
+          </section>
+        </div>
+        <section class="runner-up" aria-labelledby="runner-heading">
+          <p id="runner-label">もう一本、比較するなら</p>
+          <h3 id="runner-heading"></h3>
+          <p id="runner-copy"></p>
+        </section>
+        <aside class="notice-box" id="guardrail-note" hidden></aside>
+        <aside class="us2-note"><strong>US-2について</strong><span>モデル情報を確認中です。詳細が決まり次第、診断に追加します。</span></aside>
+        <div class="result-actions">
+          <button class="button button-primary" id="restart-button" type="button">もう一度診断する</button>
+          <a class="button button-outline" href="#model-comparison">モデルの違いを見る</a>
+        </div>
+      </section>
+
+      <section class="comparison-section" id="model-comparison" aria-labelledby="comparison-heading">
+        <div class="section-heading">
+          <p class="kicker">THE US LINEUP</p>
+          <h2 id="comparison-heading">モデルごとの違い</h2>
+        </div>
+        <div class="comparison-grid">
+          <article class="model-us1"><div class="comparison-photo" aria-hidden="true"></div><strong>US-1</strong><span>振りやすさと飛距離の両立</span></article>
+          <article class="model-us3"><div class="comparison-photo" aria-hidden="true"></div><strong>US-3</strong><span>ミート性能と扱いやすさ</span></article>
+          <article class="model-us4"><div class="comparison-photo" aria-hidden="true"></div><strong>US-4</strong><span>強いトップで長打を狙う</span></article>
+          <article class="model-us5"><div class="comparison-photo" aria-hidden="true"></div><strong>US-5</strong><span>飛距離をさらに求める</span></article>
+        </div>
+      </section>
+    </main>
+    <footer><span>BAT FIT DIAGNOSIS</span><span>FOR RUBBER BASEBALL PLAYERS</span></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
