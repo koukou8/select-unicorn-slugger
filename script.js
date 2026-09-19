@@ -2,7 +2,7 @@
   'use strict';
 
   const themes = {
-    maker: { caption: 'CRAFTED FOR YOUR SWING' },
+    maker: { caption: '軟式木製バット適性診断' },
     unicorn: { caption: 'TOKYO UNICORN BASEBALL CLUB' }
   };
 
@@ -38,41 +38,41 @@
   };
 
   const questions = [
-    { category: 'PRIORITY', title: 'バット選びで、いちばん大事にしたいのは？', weight: 3, answers: [
+    { category: '重視すること', title: 'バット選びで、いちばん大事にしたいのは？', weight: 3, answers: [
       { label: '振り抜きやすさ', scores: {'US-1': 5, 'US-3': 4, 'US-4': 1, 'US-5': 2} },
       { label: '飛距離と操作性の両立', scores: {'US-1': 5, 'US-3': 4, 'US-4': 3, 'US-5': 4} },
       { label: 'とにかく飛距離', scores: {'US-1': 3, 'US-3': 2, 'US-4': 5, 'US-5': 4} },
       { label: 'ミートしやすさ・打率', scores: {'US-1': 4, 'US-3': 5, 'US-4': 1, 'US-5': 2} }
     ] },
-    { category: 'BALANCE', title: '好みに近い重心はどれですか？', weight: 3, answers: [
+    { category: '重心の好み', title: '好みに近い重心はどれですか？', weight: 3, answers: [
       { label: '強いトップバランス', scores: {'US-1': 3, 'US-3': 1, 'US-4': 5, 'US-5': 4} },
       { label: '少しヘッドが効く程度', scores: {'US-1': 5, 'US-3': 3, 'US-4': 3, 'US-5': 5} },
       { label: 'バランス型・よく分からない', scores: {'US-1': 5, 'US-3': 4, 'US-4': 1, 'US-5': 3} },
       { label: 'グリップ寄り・コンパクト', scores: {'US-1': 3, 'US-3': 5, 'US-4': 1, 'US-5': 2} }
     ] },
-    { category: 'SWING', title: '普段のスイングに最も近いのは？', weight: 2, answers: [
+    { category: 'スイング', title: '普段のスイングに最も近いのは？', weight: 2, answers: [
       { label: 'ヘッドを走らせて、強く振り切る', scores: {'US-1': 3, 'US-3': 1, 'US-4': 5, 'US-5': 4} },
       { label: 'コンパクトに振り抜く', scores: {'US-1': 5, 'US-3': 5, 'US-4': 1, 'US-5': 2} },
       { label: '状況に応じて、両方使いたい', scores: {'US-1': 5, 'US-3': 4, 'US-4': 3, 'US-5': 4} }
     ] },
-    { category: 'FEEL', title: 'ヘッドの重さは、どう感じたいですか？', weight: 2, answers: [
+    { category: 'ヘッドの感覚', title: 'ヘッドの重さは、どう感じたいですか？', weight: 2, answers: [
       { label: 'しっかり感じて、打球を押し込みたい', scores: {'US-1': 3, 'US-3': 2, 'US-4': 5, 'US-5': 4} },
       { label: '疲れにくさ・振りやすさを優先したい', scores: {'US-1': 5, 'US-3': 5, 'US-4': 1, 'US-5': 2} },
       { label: 'まだよく分からない', scores: {'US-1': 5, 'US-3': 4, 'US-4': 2, 'US-5': 3} }
     ] },
-    { category: 'GRIP', title: 'グリップの好みはありますか？', weight: 1, answers: [
+    { category: 'グリップ', title: 'グリップの好みはありますか？', weight: 1, answers: [
       { label: '細め＋小さめのグリップエンド', scores: {'US-1': 2, 'US-3': 2, 'US-4': 5, 'US-5': 3} },
       { label: '細めが好み。ただしエンドの安心感も欲しい', scores: {'US-1': 3, 'US-3': 3, 'US-4': 1, 'US-5': 5} },
       { label: 'タイカップ系の握りが好き', scores: {'US-1': 2, 'US-3': 5, 'US-4': 2, 'US-5': 3} },
       { label: '特にこだわりはない', scores: {'US-1': 3, 'US-3': 3, 'US-4': 3, 'US-5': 3} }
     ] },
-    { category: 'CURRENT BAT', title: '今使っているバットに近いのは？', weight: 2, answers: [
+    { category: '今のバット', title: '今使っているバットに近いのは？', weight: 2, answers: [
       { label: 'ビヨンド／レガシー系のトップバランス', scores: {'US-1': 3, 'US-3': 1, 'US-4': 5, 'US-5': 3} },
       { label: 'トップバランスだが、もう少し扱いやすくしたい', scores: {'US-1': 5, 'US-3': 4, 'US-4': 1, 'US-5': 2} },
       { label: 'バランス型・ミドル系', scores: {'US-1': 4, 'US-3': 4, 'US-4': 1, 'US-5': 3} },
       { label: '初めて買う・比較対象がない', scores: {'US-1': 3, 'US-3': 3, 'US-4': 1, 'US-5': 3} }
     ] },
-    { category: 'CHALLENGE', title: '飛距離を求めるなら、操作の難しさはどこまで許容できますか？', weight: 2, answers: [
+    { category: '扱いやすさ', title: '飛距離を求めるなら、操作の難しさはどこまで許容できますか？', weight: 2, answers: [
       { label: '多少の操作難度は許容できる', scores: {'US-1': 3, 'US-3': 2, 'US-4': 3, 'US-5': 5} },
       { label: '強いトップバランスでも問題ない', scores: {'US-1': 2, 'US-3': 1, 'US-4': 5, 'US-5': 4} },
       { label: 'できるだけ扱いやすい方がよい', scores: {'US-1': 5, 'US-3': 5, 'US-4': 1, 'US-5': 1} }
@@ -104,7 +104,7 @@
   function renderQuestion() {
     const question = questions[state.current];
     const selected = state.selections[state.current];
-    els.progressLabel.innerHTML = `QUESTION <span>${state.current + 1}</span> / ${questions.length}`;
+    els.progressLabel.innerHTML = `質問 <span>${state.current + 1}</span> / ${questions.length}`;
     els.progressFill.style.width = `${((state.current + 1) / questions.length) * 100}%`;
     els.progressFill.parentElement.setAttribute('aria-valuenow', String(state.current + 1));
     els.category.textContent = question.category;
@@ -125,7 +125,7 @@
     });
     els.back.hidden = state.current === 0;
     els.next.disabled = selected === null;
-    els.next.innerHTML = state.current === questions.length - 1 ? '結果を見る <span aria-hidden="true">→</span>' : '次へ <span aria-hidden="true">→</span>';
+    els.next.textContent = state.current === questions.length - 1 ? '結果を見る' : '次へ';
     els.hint.textContent = selected === null ? 'ひとつ選んでください' : '選択しました';
   }
 
@@ -193,7 +193,7 @@
     byId('reason-list').replaceChildren(...reasonItems.map((reason) => { const li = document.createElement('li'); li.textContent = reason; return li; }));
     byId('runner-heading').textContent = result.runner;
     byId('runner-copy').textContent = models[result.runner].comparison;
-    byId('runner-label').textContent = result.guardrailApplied ? '長打特化で比較するなら' : 'もう一本、比較するなら';
+    byId('runner-label').textContent = result.guardrailApplied ? '長打特化で比べるなら' : '迷ったときの比較候補';
     const note = byId('guardrail-note');
     note.hidden = !result.guardrailApplied;
     note.textContent = result.guardrailApplied ? 'US-4は強いトップバランスへの慣れと長打志向がそろったプレーヤー向けです。今回の回答では、まず扱いやすさとの相性を優先して提案しています。' : '';
