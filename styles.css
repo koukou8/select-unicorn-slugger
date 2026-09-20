@@ -347,12 +347,12 @@ body[data-theme="maker"] footer { color: #aaa194; font-size: .67rem; letter-spac
 .custom-note strong { flex: 0 0 auto; color: var(--gold); }
 
 body[data-theme="maker"] .diagnosis-choices { max-width: 46rem; }
-body[data-theme="maker"] .diagnosis-choice { border-top-color: rgba(247,243,233,.25); background: transparent; color: #fffdf7; transition: border-color .16s ease, color .16s ease; }
+body[data-theme="maker"] .diagnosis-choice { min-height: 142px; padding: 1.1rem 1.15rem; border: 1px solid rgba(247,243,233,.25); background: rgba(13,14,12,.78); color: #fffdf7; transition: border-color .16s ease, background .16s ease; }
 body[data-theme="maker"] .diagnosis-choice .choice-label { color: #e4c47a; }
 body[data-theme="maker"] .diagnosis-choice small { color: #c6bdaf; }
-body[data-theme="maker"] .diagnosis-choice-existing { padding-right: .8rem; }
-body[data-theme="maker"] .diagnosis-choice-custom { padding-left: 1rem; border-left: 2px solid #d7b56d; }
-body[data-theme="maker"] .diagnosis-choice:hover { border-top-color: #e4c47a; color: #f1d58f; }
+body[data-theme="maker"] .diagnosis-choice-existing { border-top-color: rgba(247,243,233,.38); }
+body[data-theme="maker"] .diagnosis-choice-custom { border-color: rgba(228,196,122,.72); background: linear-gradient(135deg, rgba(196,154,82,.23), rgba(13,14,12,.82) 58%); }
+body[data-theme="maker"] .diagnosis-choice:hover { border-color: #e4c47a; background: rgba(196,154,82,.13); }
 body[data-theme="maker"] .custom-assembly { border-color: rgba(247,243,233,.26); }
 body[data-theme="maker"] .custom-part { background: #11120f; }
 body[data-theme="maker"] .custom-part p, body[data-theme="maker"] .custom-runner > p { color: #e4c47a; }
