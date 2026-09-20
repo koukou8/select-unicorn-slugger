@@ -605,3 +605,55 @@ body[data-theme="apple"] .custom-note { border-color: rgba(255,253,247,.12); bor
   body[data-theme="material"] .comparison-photo,
   body[data-theme="apple"] .comparison-photo { height: 112px; margin-right: -.85rem; margin-left: -.85rem; }
 }
+
+/* The supplied Instagram captures include the post chrome. Keep only the product artwork in the UI. */
+body[data-theme="maker"] .maker-hero-photo,
+body[data-theme="material"] .maker-hero-photo,
+body[data-theme="apple"] .maker-hero-photo {
+  background-image: url("assets/maker-hero-action-crop.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+/* The model tiles use contained portrait artwork so the complete bat remains visible. */
+body[data-theme="maker"] .comparison-photo,
+body[data-theme="material"] .comparison-photo,
+body[data-theme="apple"] .comparison-photo {
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-color: #11120f;
+}
+body[data-theme="maker"] .model-us1 .comparison-photo,
+body[data-theme="material"] .model-us1 .comparison-photo,
+body[data-theme="apple"] .model-us1 .comparison-photo { background-image: url("assets/maker-us-1-crop.jpg"); }
+body[data-theme="maker"] .model-us3 .comparison-photo,
+body[data-theme="material"] .model-us3 .comparison-photo,
+body[data-theme="apple"] .model-us3 .comparison-photo { background-image: url("assets/maker-us-3-crop.jpg"); background-position: 51% center; }
+body[data-theme="maker"] .model-us4 .comparison-photo,
+body[data-theme="material"] .model-us4 .comparison-photo,
+body[data-theme="apple"] .model-us4 .comparison-photo { background-image: url("assets/maker-us-4-crop.jpg"); }
+body[data-theme="maker"] .model-us5 .comparison-photo,
+body[data-theme="material"] .model-us5 .comparison-photo,
+body[data-theme="apple"] .model-us5 .comparison-photo { background-image: url("assets/maker-us-5-crop.jpg"); }
+body[data-theme="maker"] .comparison-photo,
+body[data-theme="material"] .comparison-photo,
+body[data-theme="apple"] .comparison-photo { height: 188px; }
+body[data-theme="maker"] .model-us1 .comparison-photo,
+body[data-theme="material"] .model-us1 .comparison-photo,
+body[data-theme="apple"] .model-us1 .comparison-photo { background-color: #303039; }
+body[data-theme="maker"] .model-us3 .comparison-photo,
+body[data-theme="material"] .model-us3 .comparison-photo,
+body[data-theme="apple"] .model-us3 .comparison-photo { background-color: #4a403a; }
+body[data-theme="maker"] .model-us4 .comparison-photo,
+body[data-theme="material"] .model-us4 .comparison-photo,
+body[data-theme="apple"] .model-us4 .comparison-photo { background-color: #142a43; }
+body[data-theme="maker"] .model-us5 .comparison-photo,
+body[data-theme="material"] .model-us5 .comparison-photo,
+body[data-theme="apple"] .model-us5 .comparison-photo { background-color: #652428; }
+
+@media (max-width: 680px) {
+  body[data-theme="maker"] .comparison-photo,
+  body[data-theme="material"] .comparison-photo,
+  body[data-theme="apple"] .comparison-photo { height: 156px; }
+}
