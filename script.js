@@ -162,8 +162,9 @@
     const loader = byId('collab-loader');
     if (!loader) return;
     window.addEventListener('load', () => {
+      // Let both marks settle before the overlay yields to the page underneath.
       window.setTimeout(() => loader.classList.add('is-exiting'), 1550);
-      window.setTimeout(() => loader.remove(), 2050);
+      window.setTimeout(() => loader.remove(), 2350);
     }, { once: true });
   }
 
