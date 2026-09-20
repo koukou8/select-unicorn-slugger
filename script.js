@@ -3,7 +3,9 @@
 
   const themes = {
     maker: { caption: '軟式木製バット適性診断' },
-    unicorn: { caption: 'TOKYO UNICORN BASEBALL CLUB' }
+    unicorn: { caption: 'TOKYO UNICORN BASEBALL CLUB' },
+    material: { caption: '軟式木製バット適性診断' },
+    apple: { caption: '軟式木製バット適性診断' }
   };
 
   const models = {

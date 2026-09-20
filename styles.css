@@ -374,3 +374,234 @@ body[data-theme="maker"] .custom-note { border-color: rgba(247,243,233,.2); back
   .custom-part strong { font-size: 3.25rem; }
   .custom-note { flex-direction: column; gap: .25rem; }
 }
+
+/* Material 3 variation: tonal surfaces make each step and selection explicit. */
+body[data-theme="material"] {
+  --ink: #fff8ef;
+  --paper: #12110e;
+  --paper-alt: #1b1914;
+  --gold: #e1bb71;
+  --gold-bright: #f4d494;
+  --muted: #c9c1b3;
+  --line: rgba(255,248,239,.14);
+  --surface: rgba(255,248,239,.065);
+  --body: Roboto, "Hiragino Sans", "Yu Gothic", sans-serif;
+  --display: Roboto, "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: #12110e;
+}
+body[data-theme="material"] .site-shell { padding-bottom: 5rem; }
+body[data-theme="material"] .brand-bar { height: 88px; border-bottom-color: rgba(255,248,239,.12); }
+body[data-theme="material"] .theme-caption { font-size: .69rem; font-weight: 600; letter-spacing: .04em; }
+body[data-theme="material"] .intro-panel {
+  min-height: 658px;
+  margin-top: 1.25rem;
+  padding: clamp(4rem, 7vw, 6.1rem) 48% 4.5rem clamp(1.5rem, 5vw, 4.8rem);
+  border: 1px solid rgba(255,248,239,.12);
+  border-radius: 30px;
+  background: #1a1813;
+  isolation: isolate;
+}
+body[data-theme="material"] .intro-panel::before,
+body[data-theme="material"] .intro-panel::after { display: none; }
+body[data-theme="material"] .intro-panel > :not(.maker-hero-photo):not(.bat-figure) { position: relative; z-index: 2; }
+body[data-theme="material"] .bat-figure { display: none; }
+body[data-theme="material"] .maker-hero-photo {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 0 auto;
+  width: 58%;
+  background: url("assets/maker-hero-action.jpg") 54% 48% / cover no-repeat;
+  filter: saturate(.56) contrast(1.08) brightness(.7);
+}
+body[data-theme="material"] .maker-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #1a1813 0%, rgba(26,24,19,.96) 16%, rgba(26,24,19,.51) 52%, rgba(18,17,14,.12) 100%);
+}
+body[data-theme="material"] h1 {
+  max-width: 10ch;
+  font-family: var(--body);
+  font-size: clamp(2.7rem, 5.1vw, 4.85rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -.055em;
+}
+body[data-theme="material"] h1 .hero-stroke { color: #fff8ef; -webkit-text-stroke-width: 0; text-stroke-width: 0; }
+body[data-theme="material"] .kicker { color: #f0cc85; font-size: .75rem; letter-spacing: .09em; }
+body[data-theme="material"] .intro-copy { max-width: 30rem; color: #ded5c7; line-height: 1.85; }
+body[data-theme="material"] .intro-meta { color: #c8c0b2; font-weight: 600; letter-spacing: .03em; }
+body[data-theme="material"] .intro-meta span:not(:last-child)::after { background: #e1bb71; }
+body[data-theme="material"] .diagnosis-choices { max-width: 46rem; gap: .9rem; }
+body[data-theme="material"] .diagnosis-choice {
+  min-height: 148px;
+  padding: 1.2rem;
+  border: 1px solid rgba(255,248,239,.16);
+  border-radius: 20px;
+  background: rgba(24,22,18,.88);
+  color: #fff8ef;
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  transition: background .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+body[data-theme="material"] .diagnosis-choice .choice-label { color: #f0cc85; }
+body[data-theme="material"] .diagnosis-choice small { color: #c9c1b3; }
+body[data-theme="material"] .diagnosis-choice-custom { border-color: rgba(225,187,113,.64); background: linear-gradient(135deg, rgba(169,128,57,.27), rgba(24,22,18,.94) 64%); }
+body[data-theme="material"] .diagnosis-choice:hover { border-color: #f0cc85; background: rgba(225,187,113,.13); box-shadow: 0 5px 14px rgba(0,0,0,.2); }
+body[data-theme="material"] .diagnosis-panel,
+body[data-theme="material"] .result-panel { max-width: 810px; }
+body[data-theme="material"] .progress-track { height: 5px; border-radius: 999px; background: rgba(255,248,239,.12); overflow: hidden; }
+body[data-theme="material"] .progress-track span { border-radius: inherit; background: #e1bb71; }
+body[data-theme="material"] .question-card { padding: clamp(1.4rem, 4vw, 2.35rem); border: 1px solid rgba(255,248,239,.1); border-radius: 28px; background: #1b1914; }
+body[data-theme="material"] .question-card h2 { max-width: 16ch; font-family: var(--body); font-size: clamp(2rem, 4.2vw, 3.55rem); font-weight: 800; letter-spacing: -.055em; line-height: 1.18; }
+body[data-theme="material"] .answer-list { gap: .75rem; }
+body[data-theme="material"] .answer-option { min-height: 68px; padding: 1rem 1.1rem; border-color: rgba(255,248,239,.16); border-radius: 16px; background: rgba(255,248,239,.045); transition: border-color .16s ease, background .16s ease; }
+body[data-theme="material"] .answer-option:hover { border-color: #e1bb71; background: rgba(225,187,113,.09); transform: none; }
+body[data-theme="material"] .answer-option.is-selected { border-color: #f0cc85; background: rgba(225,187,113,.17); }
+body[data-theme="material"] .button { border-radius: 999px; transition: background .16s ease, border-color .16s ease, color .16s ease; }
+body[data-theme="material"] .button-primary { background: #e1bb71; color: #261e10; box-shadow: none; }
+body[data-theme="material"] .button-primary:hover:not(:disabled) { background: #f0cc85; box-shadow: none; transform: none; }
+body[data-theme="material"] .button-outline { border-color: rgba(255,248,239,.4); color: #fff8ef; }
+body[data-theme="material"] .button-quiet { color: #c9c1b3; }
+body[data-theme="material"] .result-core,
+body[data-theme="material"] .runner-up,
+body[data-theme="material"] .custom-part,
+body[data-theme="material"] .custom-reason-box,
+body[data-theme="material"] .custom-runner { border-color: rgba(255,248,239,.12); background: #1b1914; }
+body[data-theme="material"] .result-core { overflow: hidden; border-radius: 24px; }
+body[data-theme="material"] .model-tags span { border-radius: 999px; }
+body[data-theme="material"] .runner-up { border-radius: 20px; }
+body[data-theme="material"] .comparison-section { margin-top: 1rem; border-top: 0; }
+body[data-theme="material"] .comparison-grid { gap: 1rem; border: 0; }
+body[data-theme="material"] .comparison-grid article { min-height: 278px; padding: 0 1rem 1.15rem; overflow: hidden; border: 1px solid rgba(255,248,239,.12); border-radius: 20px; background: #1b1914; }
+body[data-theme="material"] .comparison-photo { display: block; height: 144px; margin: 0 -1rem .95rem; background-repeat: no-repeat; background-size: 100% auto; filter: saturate(.62) contrast(1.08) brightness(.8); }
+body[data-theme="material"] .model-us1 .comparison-photo { background-image: url("assets/maker-us-1.jpg"); background-position: center 18%; }
+body[data-theme="material"] .model-us3 .comparison-photo { background-image: url("assets/maker-us-3.jpg"); background-position: center 24%; }
+body[data-theme="material"] .model-us4 .comparison-photo { background-image: url("assets/maker-us-4.jpg"); background-position: center 30%; }
+body[data-theme="material"] .model-us5 .comparison-photo { background-image: url("assets/maker-us-5.jpg"); background-position: center 30%; }
+body[data-theme="material"] .custom-assembly { overflow: hidden; border-radius: 24px; border-color: rgba(255,248,239,.12); }
+body[data-theme="material"] .custom-note { border-radius: 16px; border-color: rgba(255,248,239,.12); background: rgba(225,187,113,.09); }
+
+/* Apple variation: generous spacing, calm hierarchy, and light-touch materials on controls. */
+body[data-theme="apple"] {
+  --ink: #fffdf7;
+  --paper: #090a09;
+  --paper-alt: #141512;
+  --gold: #dfbc76;
+  --gold-bright: #f2d495;
+  --muted: #bbb7af;
+  --line: rgba(255,253,247,.14);
+  --surface: rgba(255,253,247,.06);
+  --body: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Hiragino Sans", "Yu Gothic", sans-serif;
+  --display: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Hiragino Sans", "Yu Gothic", sans-serif;
+  background: #090a09;
+}
+body[data-theme="apple"] .site-shell { padding-bottom: 5.5rem; }
+body[data-theme="apple"] .brand-bar { height: 84px; border-bottom-color: rgba(255,253,247,.12); }
+body[data-theme="apple"] .wordmark { letter-spacing: .025em; }
+body[data-theme="apple"] .theme-caption { font-size: .68rem; font-weight: 500; letter-spacing: .025em; }
+body[data-theme="apple"] .intro-panel {
+  min-height: 650px;
+  margin-top: 1.5rem;
+  padding: clamp(4rem, 7.4vw, 6.3rem) 49% 4.7rem clamp(1.5rem, 5.4vw, 5rem);
+  border: 1px solid rgba(255,253,247,.13);
+  border-radius: 26px;
+  background: #141512;
+  isolation: isolate;
+}
+body[data-theme="apple"] .intro-panel::before,
+body[data-theme="apple"] .intro-panel::after { display: none; }
+body[data-theme="apple"] .intro-panel > :not(.maker-hero-photo):not(.bat-figure) { position: relative; z-index: 2; }
+body[data-theme="apple"] .bat-figure { display: none; }
+body[data-theme="apple"] .maker-hero-photo {
+  display: block;
+  position: absolute;
+  z-index: 1;
+  inset: 0 0 0 auto;
+  width: 59%;
+  background: url("assets/maker-hero-action.jpg") 53% 48% / cover no-repeat;
+  filter: saturate(.57) contrast(1.05) brightness(.7);
+}
+body[data-theme="apple"] .maker-hero-photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, #141512 0%, rgba(20,21,18,.94) 17%, rgba(20,21,18,.47) 54%, rgba(9,10,9,.12) 100%);
+}
+body[data-theme="apple"] h1 { max-width: 9.5ch; font-family: var(--body); font-size: clamp(2.75rem, 5.2vw, 4.95rem); font-weight: 750; line-height: 1.1; letter-spacing: -.065em; }
+body[data-theme="apple"] h1 .hero-stroke { color: #fffdf7; -webkit-text-stroke-width: 0; text-stroke-width: 0; }
+body[data-theme="apple"] .kicker { color: #e7c987; font-size: .75rem; font-weight: 650; letter-spacing: .045em; }
+body[data-theme="apple"] .intro-copy { max-width: 29rem; color: #dad6cd; line-height: 1.85; }
+body[data-theme="apple"] .intro-meta { color: #bdb8af; font-size: .75rem; font-weight: 550; letter-spacing: .02em; }
+body[data-theme="apple"] .intro-meta span:not(:last-child)::after { background: rgba(242,212,149,.75); }
+body[data-theme="apple"] .diagnosis-choices { max-width: 46rem; gap: .75rem; }
+body[data-theme="apple"] .diagnosis-choice {
+  min-height: 142px;
+  padding: 1.15rem 1.2rem;
+  border: 1px solid rgba(255,253,247,.16);
+  border-radius: 18px;
+  background: rgba(26,27,24,.72);
+  color: #fffdf7;
+  box-shadow: 0 10px 28px rgba(0,0,0,.16);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transition: background .16s ease, border-color .16s ease;
+}
+body[data-theme="apple"] .diagnosis-choice .choice-label { color: #e7c987; letter-spacing: .06em; }
+body[data-theme="apple"] .diagnosis-choice small { color: #c7c2b9; }
+body[data-theme="apple"] .diagnosis-choice-custom { border-color: rgba(223,188,118,.62); background: rgba(72,57,32,.63); }
+body[data-theme="apple"] .diagnosis-choice:hover { border-color: rgba(242,212,149,.82); background: rgba(223,188,118,.13); }
+body[data-theme="apple"] .diagnosis-panel,
+body[data-theme="apple"] .result-panel { max-width: 780px; }
+body[data-theme="apple"] .progress-area { margin-bottom: 3.15rem; }
+body[data-theme="apple"] .progress-track { height: 4px; border-radius: 999px; overflow: hidden; background: rgba(255,253,247,.13); }
+body[data-theme="apple"] .progress-track span { border-radius: inherit; background: #dfbc76; }
+body[data-theme="apple"] .question-card h2 { max-width: 17ch; font-family: var(--body); font-size: clamp(2.1rem, 4.4vw, 3.6rem); font-weight: 750; line-height: 1.16; letter-spacing: -.06em; }
+body[data-theme="apple"] .answer-list { gap: .7rem; }
+body[data-theme="apple"] .answer-option { min-height: 68px; padding: 1rem 1.12rem; border-color: rgba(255,253,247,.15); border-radius: 14px; background: rgba(255,253,247,.045); transition: border-color .16s ease, background .16s ease; }
+body[data-theme="apple"] .answer-option:hover { border-color: rgba(242,212,149,.78); background: rgba(223,188,118,.08); transform: none; }
+body[data-theme="apple"] .answer-option.is-selected { border-color: #dfbc76; background: rgba(223,188,118,.15); }
+body[data-theme="apple"] .button { border-radius: 12px; transition: background .16s ease, border-color .16s ease, color .16s ease; }
+body[data-theme="apple"] .button-primary { background: #dfbc76; color: #17130c; box-shadow: none; }
+body[data-theme="apple"] .button-primary:hover:not(:disabled) { background: #f2d495; box-shadow: none; transform: none; }
+body[data-theme="apple"] .button-outline { border-color: rgba(255,253,247,.42); color: #fffdf7; }
+body[data-theme="apple"] .button-quiet { color: #c3beb5; }
+body[data-theme="apple"] .result-model { font-family: var(--body); font-weight: 780; letter-spacing: -.055em; }
+body[data-theme="apple"] .result-core { overflow: hidden; border: 1px solid rgba(255,253,247,.12); border-radius: 20px; background: #141512; }
+body[data-theme="apple"] .reason-box,
+body[data-theme="apple"] .model-profile { padding: clamp(1.5rem, 3.6vw, 2.25rem); }
+body[data-theme="apple"] .runner-up { border: 1px solid rgba(255,253,247,.12); border-radius: 18px; background: #141512; }
+body[data-theme="apple"] .model-tags span { border-radius: 999px; }
+body[data-theme="apple"] .comparison-section { margin-top: .75rem; border-top: 0; }
+body[data-theme="apple"] .comparison-grid { gap: .85rem; border: 0; }
+body[data-theme="apple"] .comparison-grid article { min-height: 274px; padding: 0 1rem 1.15rem; overflow: hidden; border: 1px solid rgba(255,253,247,.12); border-radius: 18px; background: #141512; }
+body[data-theme="apple"] .comparison-photo { display: block; height: 140px; margin: 0 -1rem .95rem; background-repeat: no-repeat; background-size: 100% auto; filter: saturate(.58) contrast(1.05) brightness(.78); }
+body[data-theme="apple"] .model-us1 .comparison-photo { background-image: url("assets/maker-us-1.jpg"); background-position: center 18%; }
+body[data-theme="apple"] .model-us3 .comparison-photo { background-image: url("assets/maker-us-3.jpg"); background-position: center 24%; }
+body[data-theme="apple"] .model-us4 .comparison-photo { background-image: url("assets/maker-us-4.jpg"); background-position: center 30%; }
+body[data-theme="apple"] .model-us5 .comparison-photo { background-image: url("assets/maker-us-5.jpg"); background-position: center 30%; }
+body[data-theme="apple"] .custom-assembly { overflow: hidden; border-color: rgba(255,253,247,.12); border-radius: 20px; }
+body[data-theme="apple"] .custom-part,
+body[data-theme="apple"] .custom-reason-box,
+body[data-theme="apple"] .custom-runner { border-color: rgba(255,253,247,.12); background: #141512; }
+body[data-theme="apple"] .custom-note { border-color: rgba(255,253,247,.12); border-radius: 14px; background: rgba(223,188,118,.08); }
+
+@media (max-width: 680px) {
+  body[data-theme="material"] .site-shell,
+  body[data-theme="apple"] .site-shell { padding-right: 1rem; padding-left: 1rem; }
+  body[data-theme="material"] .intro-panel,
+  body[data-theme="apple"] .intro-panel { min-height: 630px; padding: 3.7rem 1.35rem 3rem; border-radius: 22px; }
+  body[data-theme="material"] .maker-hero-photo,
+  body[data-theme="apple"] .maker-hero-photo { width: 100%; background-position: 55% 48%; }
+  body[data-theme="material"] .maker-hero-photo::after { background: linear-gradient(90deg, rgba(26,24,19,.92) 0%, rgba(26,24,19,.61) 57%, rgba(18,17,14,.13) 100%); }
+  body[data-theme="apple"] .maker-hero-photo::after { background: linear-gradient(90deg, rgba(20,21,18,.92) 0%, rgba(20,21,18,.6) 57%, rgba(9,10,9,.13) 100%); }
+  body[data-theme="material"] h1,
+  body[data-theme="apple"] h1 { max-width: 8.5ch; font-size: clamp(2.55rem, 11vw, 3.7rem); }
+  body[data-theme="material"] .question-card { padding: 1.35rem; border-radius: 22px; }
+  body[data-theme="material"] .comparison-grid,
+  body[data-theme="apple"] .comparison-grid { gap: .75rem; }
+  body[data-theme="material"] .comparison-grid article,
+  body[data-theme="apple"] .comparison-grid article { min-height: 245px; padding-right: .85rem; padding-left: .85rem; }
+  body[data-theme="material"] .comparison-photo,
+  body[data-theme="apple"] .comparison-photo { height: 112px; margin-right: -.85rem; margin-left: -.85rem; }
+}
