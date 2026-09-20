@@ -657,3 +657,23 @@ body[data-theme="apple"] .model-us5 .comparison-photo { background-color: #65242
   body[data-theme="material"] .comparison-photo,
   body[data-theme="apple"] .comparison-photo { height: 156px; }
 }
+
+/* Keep the brand bar available while scrolling without competing with the content. */
+.brand-bar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 0;
+  background: var(--paper);
+}
+.theme-caption { display: none; }
+
+/* The hero is a continuous editorial opening, while the two diagnosis choices remain actionable cards. */
+body[data-theme="maker"] .intro-panel,
+body[data-theme="material"] .intro-panel,
+body[data-theme="apple"] .intro-panel {
+  margin-top: 0;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+}
