@@ -158,6 +158,15 @@
     document.querySelector('.wordmark').setAttribute('href', `?ui=${theme}`);
   }
 
+  function setupCollabLoader() {
+    const loader = byId('collab-loader');
+    if (!loader) return;
+    window.addEventListener('load', () => {
+      window.setTimeout(() => loader.classList.add('is-exiting'), 1550);
+      window.setTimeout(() => loader.remove(), 2050);
+    }, { once: true });
+  }
+
   function showPanel(panel) {
     [els.intro, els.diagnosis, els.result].forEach((element) => element.classList.add('is-hidden'));
     panel.classList.remove('is-hidden');
@@ -330,4 +339,5 @@
   els.back.addEventListener('click', () => { if (state.current > 0) { state.current -= 1; renderQuestion(); els.title.focus({ preventScroll: true }); } });
   els.restart.addEventListener('click', () => { state.mode = null; state.current = 0; state.selections = []; showPanel(els.intro); window.scrollTo({ top: 0, behavior: 'smooth' }); els.startExisting.focus({ preventScroll: true }); });
   setupTheme();
+  setupCollabLoader();
 })();

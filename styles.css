@@ -677,3 +677,79 @@ body[data-theme="apple"] .intro-panel {
   border-radius: 0;
   background: transparent;
 }
+
+/* A short collaboration mark gives the first load a human, brand-led handoff. */
+.collab-loader {
+  position: fixed;
+  z-index: 100;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #090a09;
+  color: #fffdf7;
+  pointer-events: none;
+  animation: collab-loader-fade 2.3s ease forwards;
+}
+.collab-loader-stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(.6rem, 3vw, 1.4rem);
+  min-height: 136px;
+}
+.collab-mark {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: clamp(88px, 14vw, 138px);
+  height: clamp(88px, 14vw, 138px);
+  overflow: hidden;
+  border: 1px solid rgba(228,196,122,.35);
+  border-radius: 50%;
+  background: #171613;
+  box-shadow: 0 10px 35px rgba(0,0,0,.25);
+}
+.collab-mark-hakusoh { transform: translateX(-54px) rotate(-8deg) scale(.88); animation: collab-mark-left 1.15s cubic-bezier(.22,.8,.24,1) .15s forwards; }
+.collab-mark-hakusoh img { position: absolute; width: 230%; max-width: none; height: auto; left: -65%; top: -2%; }
+.collab-mark-unicorn { transform: translateX(54px) rotate(8deg) scale(.88); animation: collab-mark-right 1.15s cubic-bezier(.22,.8,.24,1) .15s forwards; }
+.collab-mark-unicorn img { width: 100%; height: 100%; object-fit: contain; }
+.collab-mark-plus {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 2;
+  display: grid;
+  place-items: center;
+  width: 2.1rem;
+  height: 2.1rem;
+  border: 1px solid rgba(228,196,122,.62);
+  border-radius: 50%;
+  background: #090a09;
+  color: #e4c47a;
+  font-size: 1.45rem;
+  line-height: 1;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(.5);
+  animation: collab-plus-in .45s cubic-bezier(.22,.8,.24,1) .82s forwards;
+}
+.collab-loader-copy { display: flex; align-items: center; gap: .75rem; margin: 1.25rem 0 0; color: #d9c79d; font-size: .72rem; font-weight: 700; letter-spacing: .12em; opacity: 0; animation: collab-copy-in .5s ease 1.02s forwards; }
+.collab-loader-copy b { color: #e4c47a; font-size: 1rem; font-weight: 400; }
+@keyframes collab-mark-left { to { transform: translateX(0) rotate(0) scale(1); } }
+@keyframes collab-mark-right { to { transform: translateX(0) rotate(0) scale(1); } }
+@keyframes collab-plus-in { to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+@keyframes collab-copy-in { to { opacity: 1; } }
+@keyframes collab-loader-fade { 0%, 76% { opacity: 1; visibility: visible; } 100% { opacity: 0; visibility: hidden; } }
+.collab-loader.is-exiting { animation: collab-loader-fade-out .45s ease forwards; }
+@keyframes collab-loader-fade-out { to { opacity: 0; visibility: hidden; } }
+@media (max-width: 680px) {
+  .collab-loader-stage { gap: .5rem; }
+  .collab-loader-copy { font-size: .62rem; letter-spacing: .08em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .collab-mark-hakusoh, .collab-mark-unicorn { animation: none; transform: none; }
+  .collab-mark-plus, .collab-loader-copy { animation: none; opacity: 1; }
+  .collab-mark-plus { transform: translate(-50%, -50%); }
+  .collab-loader-copy { transform: none; }
+  .collab-loader { animation: collab-loader-fade-out .25s ease 1s forwards; }
+}
