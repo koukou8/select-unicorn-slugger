@@ -26,11 +26,22 @@
         <div class="bat-figure" aria-hidden="true"><span></span><i></i></div>
         <p class="kicker">軟式木製バットの適性診断</p>
         <h1 id="intro-title"><span>振り方から、</span><span class="hero-stroke">合う一本を選ぶ。</span></h1>
-        <p class="intro-copy">飛距離だけでは決めない。重心、振り抜きやすさ、握りの好みから、USシリーズの中で今のあなたに合う一本を提案します。</p>
+        <p class="intro-copy">完成モデルから選ぶか、手元とヘッドを分けて組み合わせるか。あなたの振り方に合わせて、USシリーズの答えを絞り込みます。</p>
         <div class="intro-meta" aria-label="診断の所要時間と対象">
-          <span>7問</span><span>約1分</span><span>軟式用</span>
+          <span>各7問</span><span>約1分</span><span>軟式用</span>
         </div>
-        <button class="button button-primary" id="start-button" type="button">診断をはじめる</button>
+        <div class="diagnosis-choices" aria-label="診断を選ぶ">
+          <button class="diagnosis-choice diagnosis-choice-existing" id="start-existing-button" type="button">
+            <span class="choice-label">既存モデル診断</span>
+            <strong>完成モデルから選ぶ</strong>
+            <small>US-1 / US-3 / US-4 / US-5</small>
+          </button>
+          <button class="diagnosis-choice diagnosis-choice-custom" id="start-custom-button" type="button">
+            <span class="choice-label">CUSTOM ORDER診断</span>
+            <strong>グリップとバレルを組み合わせる</strong>
+            <small>手元の感覚と、ヘッドの振り感を別々に選ぶ</small>
+          </button>
+        </div>
         <p class="intro-note">※ US-2は情報を確認中のため、診断には含まれていません。</p>
       </section>
 
@@ -52,31 +63,59 @@
       </section>
 
       <section class="result-panel is-hidden" id="result-panel" aria-labelledby="result-heading" tabindex="-1">
-        <p class="result-label">診断結果</p>
-        <p class="result-lead">今のスイングに近いのは、このモデルです。</p>
+        <p class="result-label" id="result-label">診断結果</p>
+        <p class="result-lead" id="result-lead">今のスイングに近いのは、このモデルです。</p>
         <h2 id="result-heading" class="result-model"></h2>
         <p id="result-tagline" class="result-tagline"></p>
-        <div class="fit-meter" aria-label="適合度"><span class="fit-meter-label">相性スコア</span><strong id="fit-score"></strong><span class="fit-meter-suffix">/ 100</span></div>
-        <p id="recommendation-status" class="recommendation-status" aria-live="polite"></p>
-        <div class="result-core">
-          <section class="reason-box" aria-labelledby="reason-heading">
-            <h3 id="reason-heading">このモデルが合う理由</h3>
-            <ul id="reason-list"></ul>
+        <div id="existing-result-details">
+          <div class="fit-meter" aria-label="適合度"><span class="fit-meter-label">相性スコア</span><strong id="fit-score"></strong><span class="fit-meter-suffix">/ 100</span></div>
+          <p id="recommendation-status" class="recommendation-status" aria-live="polite"></p>
+          <div class="result-core">
+            <section class="reason-box" aria-labelledby="reason-heading">
+              <h3 id="reason-heading">このモデルが合う理由</h3>
+              <ul id="reason-list"></ul>
+            </section>
+            <section class="model-profile" aria-labelledby="profile-heading">
+              <h3 id="profile-heading">モデルの特徴</h3>
+              <p id="model-description"></p>
+              <div id="model-tags" class="model-tags"></div>
+              <p class="model-caution"><strong>選ぶ前に</strong><span id="model-caution"></span></p>
+            </section>
+          </div>
+          <section class="runner-up" aria-labelledby="runner-heading">
+            <p id="runner-label">迷ったときの比較候補</p>
+            <h3 id="runner-heading"></h3>
+            <p id="runner-copy"></p>
           </section>
-          <section class="model-profile" aria-labelledby="profile-heading">
-            <h3 id="profile-heading">モデルの特徴</h3>
-            <p id="model-description"></p>
-            <div id="model-tags" class="model-tags"></div>
-            <p class="model-caution"><strong>選ぶ前に</strong><span id="model-caution"></span></p>
-          </section>
+          <aside class="notice-box" id="guardrail-note" hidden></aside>
+          <aside class="us2-note"><strong>US-2について</strong><span>モデル情報を確認中です。詳細が決まり次第、診断に追加します。</span></aside>
         </div>
-        <section class="runner-up" aria-labelledby="runner-heading">
-          <p id="runner-label">迷ったときの比較候補</p>
-          <h3 id="runner-heading"></h3>
-          <p id="runner-copy"></p>
-        </section>
-        <aside class="notice-box" id="guardrail-note" hidden></aside>
-        <aside class="us2-note"><strong>US-2について</strong><span>モデル情報を確認中です。詳細が決まり次第、診断に追加します。</span></aside>
+        <div id="custom-result-details" class="custom-result-details is-hidden">
+          <div class="custom-assembly" aria-label="カスタムオーダーの組み合わせ">
+            <section class="custom-part">
+              <p>GRIP</p>
+              <strong id="custom-grip-model"></strong>
+              <span id="custom-grip-copy"></span>
+            </section>
+            <span class="assembly-plus" aria-hidden="true">＋</span>
+            <section class="custom-part">
+              <p>BARREL</p>
+              <strong id="custom-barrel-model"></strong>
+              <span id="custom-barrel-copy"></span>
+            </section>
+          </div>
+          <div class="custom-fit" aria-label="組み合わせの相性"><span>組み合わせの相性</span><strong id="custom-fit-score"></strong><small>/ 100</small></div>
+          <section class="custom-reason-box" aria-labelledby="custom-reason-heading">
+            <h3 id="custom-reason-heading">この組み合わせが合う理由</h3>
+            <ul id="custom-reason-list"></ul>
+          </section>
+          <section class="custom-runner" aria-labelledby="custom-runner-heading">
+            <p>次点の組み合わせ</p>
+            <h3 id="custom-runner-heading"></h3>
+            <span id="custom-runner-copy"></span>
+          </section>
+          <aside class="custom-note"><strong>オーダー前に確認</strong><span>組み合わせの可否、長さ、重量、最終仕様はメーカーへご確認ください。</span></aside>
+        </div>
         <div class="result-actions">
           <button class="button button-primary" id="restart-button" type="button">もう一度診断する</button>
           <a class="button button-outline" href="#model-comparison">モデルを比べる</a>
@@ -97,6 +136,6 @@
       </section>
     </main>
     <footer><span>UNICORN SLUGGER</span><span>軟式木製バット適性診断</span></footer>
-    <script src="script.js?v=20260920-2"></script>
+    <script src="script.js?v=20260920-3"></script>
   </body>
 </html>
