@@ -742,19 +742,6 @@ body[data-theme="apple"] .intro-panel {
   opacity: 0;
   animation: collab-unicorn-in .9s cubic-bezier(.22,.8,.24,1) .26s forwards;
 }
-.collab-mark-plus {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  z-index: 2;
-  color: #e4c47a;
-  font-size: clamp(2rem, 5vw, 3.6rem);
-  font-weight: 300;
-  line-height: 1;
-  opacity: 0;
-  transform: translate(-50%, -50%) rotate(-8deg) scale(.78);
-  animation: collab-plus-in .5s cubic-bezier(.22,.8,.24,1) .78s forwards;
-}
 .collab-loader-copy {
   position: absolute;
   left: 50%;
@@ -772,7 +759,6 @@ body[data-theme="apple"] .intro-panel {
   transform: translateX(-50%);
   animation: collab-copy-in .5s ease 1s forwards;
 }
-.collab-loader-copy b { color: #e4c47a; font-size: 1rem; font-weight: 400; }
 .collab-loader.is-exiting {
   opacity: 0;
   visibility: hidden;
@@ -786,22 +772,18 @@ body[data-theme="apple"] .intro-panel {
   0% { opacity: 0; transform: translate(30px, 28px) rotate(6deg) scale(.94); }
   100% { opacity: 1; transform: translate(0, 0) rotate(3deg) scale(1); }
 }
-@keyframes collab-plus-in {
-  to { opacity: 1; transform: translate(-50%, -50%) rotate(0) scale(1); }
-}
 @keyframes collab-copy-in {
   to { opacity: 1; }
 }
 @media (max-width: 680px) {
   .collab-loader-stage { width: 100%; height: min(65vh, 500px); min-height: 330px; }
   .collab-mark-hakusoh { left: -4%; width: min(65vw, 320px); }
-  .collab-mark-unicorn { right: -3%; width: min(65vw, 320px); }
+  .collab-mark-unicorn { right: -3%; bottom: 12%; width: min(65vw, 320px); }
   .collab-loader-copy { bottom: -2rem; font-size: .6rem; letter-spacing: .08em; }
 }
 @media (prefers-reduced-motion: reduce) {
   .collab-mark-hakusoh, .collab-mark-unicorn { animation: none; opacity: 1; transform: none; }
-  .collab-mark-plus, .collab-loader-copy { animation: none; opacity: 1; }
-  .collab-mark-plus { transform: translate(-50%, -50%); }
+  .collab-loader-copy { animation: none; opacity: 1; }
   .collab-loader-copy { transform: translateX(-50%); }
   .collab-loader { transition-duration: .2s; }
 }
